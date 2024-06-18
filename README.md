@@ -27,3 +27,4 @@ Technologies Used:
 
 To run the script:
    
+![Screenshot 2024-06-18 195306](https://github.com/Partheeban37/CODTECH-task2/assets/144414138/9c64c2ba-3515-449e-a191-cc11357bd1e9)

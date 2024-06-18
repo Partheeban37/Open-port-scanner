@@ -1,0 +1,32 @@
+import socket
+import sys
+
+def scan_host(target_host, port):
+    try:
+        # Create a socket object
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # Set a timeout for connection attempts
+        socket.setdefaulttimeout(2)
+        # Attempt to connect to the target host and port
+        result = sock.connect_ex((target_host, port))
+        if result == 0:
+            print(f"Port {port} is open")
+        sock.close()
+    except socket.error:
+        print(f"Could not connect to {target_host}")
+
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: python scanner.py <target_host>")
+        sys.exit(1)
+
+    target_host = sys.argv[1]
+    # Ports to scan (can be expanded for more comprehensive scanning)
+    ports = [21, 22, 80, 443, 3306]
+
+    print(f"Starting scan on host: {target_host}")
+    for port in ports:
+        scan_host(target_host, port)
+
+if __name__ == "__main__":
+    main()

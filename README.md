@@ -79,6 +79,6 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 Inspired by various network scanning tools and tutorials available online.
 
-# Output
+# OUTPUT SCREENSHOT
 
 ![Screenshot 2024-06-18 195306](https://github.com/Partheeban37/CODTECH-task2/assets/144414138/9c64c2ba-3515-449e-a191-cc11357bd1e9)

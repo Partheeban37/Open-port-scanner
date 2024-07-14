@@ -12,7 +12,7 @@
 
 ### Mentor:SRAVANI GOUNI
 
-# Simple Port Scanner
+#Port Scanner
 
 This is a simple port scanner implemented in Python using the `socket` module. The program scans a predefined list of ports on a target host to check if they are open.
 

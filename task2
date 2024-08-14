@@ -1,32 +1,36 @@
-import socket
-import sys
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketAddress;
 
-def scan_host(target_host, port):
-    try:
-        # Create a socket object
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        # Set a timeout for connection attempts
-        socket.setdefaulttimeout(2)
-        # Attempt to connect to the target host and port
-        result = sock.connect_ex((target_host, port))
-        if result == 0:
-            print(f"Port {port} is open")
-        sock.close()
-    except socket.error:
-        print(f"Could not connect to {target_host}")
+public class PortScanner {
 
-def main():
-    if len(sys.argv) != 2:
-        print("Usage: python scanner.py <target_host>")
-        sys.exit(1)
+    public static void scanHost(String targetHost, int port) {
+        try (Socket socket = new Socket()) {
+                                                                // Set a timeout for connection attempts
+            SocketAddress socketAddress = new InetSocketAddress(targetHost, port);
+            socket.connect(socketAddress, 2000); // 2000 milliseconds timeout
+            System.out.println("Port " + port + " is open");
+        } catch (IOException e) {
+                                                                 // Print message if connection fails
+                                                                // Uncomment the line below if you want to see connection errors
+                                                                // System.out.println("Could not connect to " + targetHost + " on port " + port);
+        }
+    }
 
-    target_host = sys.argv[1]
-    # Ports to scan (can be expanded for more comprehensive scanning)
-    ports = [21, 22, 80, 443, 3306]
+    public static void main(String[] args) {
+        if (args.length != 1) {
+            System.out.println("Usage: java PortScanner <target_host>");
+            System.exit(1);
+        }
 
-    print(f"Starting scan on host: {target_host}")
-    for port in ports:
-        scan_host(target_host, port)
+        String targetHost = args[0];
+                                                              // Ports to scan (can be expanded for more comprehensive scanning)
+        int[] ports = {21, 22, 80, 443, 3306};
 
-if __name__ == "__main__":
-    main()
+        System.out.println("Starting scan on host: " + targetHost);
+        for (int port : ports) {
+            scanHost(targetHost, port);
+        }
+    }
+}

@@ -47,7 +47,7 @@ Run the scanner with the target host as an argument:
 python scanner.py <target_host>
 ```
 
-###Example:
+### Example:
   ```bash
  python scanner.py 192.168.1.1
   ```

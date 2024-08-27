@@ -1,16 +1,5 @@
-# CODTECH-task2
 
 ### Name:PARTHEEBAN R
-
-### Company:CODTECH IT SOLUTIONS
-
-### ID:CTO8DS161
-
-### Domain:CYBER SECURITY & ETHICAL HACKING
-
-### Duration:june to july
-
-### Mentor:SRAVANI GOUNI
 
 # Port Scanner
 
